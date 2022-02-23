@@ -55,7 +55,15 @@ fac.Config('2p6 3p5 4s1 3d3', group='ik4_ii8')
 fac.Config('2p6 3p5 4s1 3d2', group='ik4_ii9')
 fac.Config('2p6 3p5 4s1 3d1', group='ik4_ii10')
 
-ladders = {0: 0, 1: 1, 2: 2, 3: 3, 4: 1}
+fac.Config('2p5 3p3 4s1 3d10', group='ik5_ii4')
+fac.Config('2p5 3p3 4s1 3d9', group='ik5_ii5')
+fac.Config('2p5 3p3 4s1 3d8', group='ik5_ii6')
+fac.Config('2p5 3p3 4s1 3d7', group='ik5_ii7')
+fac.Config('2p5 3p3 4s1 3d6', group='ik5_ii8')
+fac.Config('2p5 3p3 4s1 3d5', group='ik5_ii9')
+fac.Config('2p5 3p3 4s1 3d4', group='ik5_ii10')
+
+ladders = {0: 0, 1: 1, 2: 2, 3: 3, 4: 1, 5: 4}
 
 all_groups = ["ik%d_ii%d"%(k, i) for k in ladders for
                i in range(ladders[k], 11)]

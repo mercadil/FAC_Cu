@@ -88,6 +88,7 @@ fac.PrintTable(name+'.lev.b', name+'.lev', 1)
 print('Level table saved.')
 
 
+
 low_up = [['ik0_ii1', 'ik1_ii1'],
 ['ik0_ii2', 'ik1_ii2'],
 ['ik0_ii3', 'ik1_ii3'],
@@ -99,7 +100,7 @@ low_up = [['ik0_ii1', 'ik1_ii1'],
 ['ik0_ii9', 'ik1_ii9'],
 ['ik0_ii10', 'ik1_ii10']
 ]
-for lu in low_up:
+for lu in low_up[:1]:
     print(lu)
     fac.TransitionTable(name+'.tr.b', [lu[0]], [lu[1]])
 fac.PrintTable(name+'.tr.b', name+'.tr', 1)
@@ -108,17 +109,20 @@ print('Transition table saved.')
 
 #photoionization
 low_up = [['ik0_ii0', 'ik1_ii1'],
-           ['ik0_ii1', 'ik1_ii2']]
+           ['ik0_ii0', 'ik0_ii1']]
 for lu in low_up:
     print(lu)
-    fac.SetUsrPEGrid([900, 930, 940, 950, 1000])
+    fac.SetRecQkMode('interpolate')
+    fac.SetUsrPEGrid([0, 1, 2, 5, 10, 20, 50, 100,
+                      200, 500, 900, 1000])
     fac.RRTable(name+'.rr.b', [lu[0]], [lu[1]])
 fac.PrintTable(name+'.rr.b', name+'.rr', 1)
 print('RR table saved.')
 
-#fac.AITable(name+'.ai.b', ['2pm1'], ['3dm2', '3dm1_4sm1'])
-#fac.PrintTable(name+'.ai.b', name+'.ai', 1)
-#print('AI table saved.')
+
+fac.AITable(name+'.ai.b', ['ik1_ii1'], ['ik0_ii2'])
+fac.PrintTable(name+'.ai.b', name+'.ai', 1)
+print('AI table saved.')
 
 #print(fac.AIBranch(name+'.ai.b', 319, 7))
 #print(fac.AIBranch(name+'.ai.b', 320, 7))
